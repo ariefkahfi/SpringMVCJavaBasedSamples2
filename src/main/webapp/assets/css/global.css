@@ -1,7 +1,148 @@
+/*orange : #FB7121*/
+/*cyan : #15CCA9*/
+/*grey : #F4F4F4*/
 body{
     margin : 0;
 }
 
 *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+/*title styles*/
+.title{
+    margin : 2px;
+}
+/*title styles*/
+
+
+/*clearfix*/
+.clearfix:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+/*clearfix*/
+
+/*left sidebar styles*/
+#left-sidebar{
+    width: 25%;
+    background-color: #F4F4F4;
+    float: left;
+}
+/*left sidebar styles*/
+
+
+
+
+/*card styles*/
+.card{
+    border-radius: 3px;
+    width : 32%;
+    margin : 2px;
+    margin-top : 0;
+    float: left;
+    border : 1px solid #DFDFDF;
+}
+.card:hover{
+    cursor: pointer;
+}
+.card-image{
+    display: block;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    width: 100%;
+    height : 120px;
+}
+.card-desc{
+    background-color: #FB7121;
+    padding : 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: white;
+}
+/*card styles*/
+
+
+/*image styles*/
+.image-block{
+    display: block;
+    width: 100%;
+    margin-bottom : 2px;
+}
+/*image styles*/
+
+/*container styles*/
+#inner-center-container{
+    float: left;
+    width : 520px;
+    padding-left : 5px;
+}
+#inner-right-container{
+    float: left;
+    padding-left: 5px;
+}
+.wrapper{
+    width: 960px;
+    margin : auto;
+}
+#main-container{
+    padding : 5px;
+}
+
+.container{
+    padding : 2px;
+}
+.container-bordered{
+    border : 1px solid #DFDFDF;
+    border-radius: 3px;
+}
+.container-floating-left{
+
+}
+/*container styles*/
+
+/*navbar styles*/
+#top-navbar-title{
+    font-family: 'Lobster', cursive;
+    margin : 0;
+    padding : 5px;
+    display: inline-block;
+}
+#top-navbar{
+    background-color: #FB7121;
+}
+#top-navbar-button-home{
+    color: white;
+    cursor: pointer;
+    background-color: #15CCA9;
+}
+#top-navbar-button-contact{
+    color: white;
+    cursor: pointer;
+    background-color: #FB7121;
+}
+#top-navbar-right-button-container{
+    padding: 5px;
+    float: right;
+}
+/*navbar styles*/
+
+/*button styles*/
+.button{
+    border-radius: 3px;
+    border : 0;
+    padding : 8px;
+}
+.button-bordered-white{
+    border : 2px solid white;
+}
+/*button styles*/
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+@media screen and (max-width : 980px){
+    #inner-right-container{
+        display: none;
+    }
+    .wrapper{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width : 970px){
+    /*body{*/
+        /*background-color: dodgerblue;*/
+    /*}*/
+
+    #inner-center-container{
+        float: none;
+        width: auto;
+        overflow: hidden;
+    }
+}
+
+
+@media screen and (max-width : 860px){
+    /*body{*/
+        /*background-color: yellowgreen;*/
+    /*}*/
+}
+
+/*@media screen and (max-width : 700px){*/
+    /*body{*/
+        /*background-color: aqua;*/
+    /*}*/
+/*}*/
+
+@media screen and (max-width : 700px){
+    /*body{*/
+        /*background-color: yellow;*/
+    /*}*/
+    #left-sidebar{
+        float: none;
+        width: 100%;
+    }
+    #inner-center-container{
+        margin-top : 2px;
+        padding : 0;
+    }
+    .card{
+        width: 32.50%;
+    }
+}
+
+@media screen and (max-width : 525px){
+    /*body{*/
+        /*background-color: blue;*/
+    /*}*/
+
+    .card{
+        width: 48%;
+        margin-left :0;
+    }
+    #top-navbar-title{
+        display: block;
+    }
+    #top-navbar-right-button-container{
+        float: none;
+        display: block;
+    }
+    #top-navbar-button-home,#top-navbar-button-contact{
+        display: block;
+        width : 100%;
+        margin-bottom : 5px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .card{
+        float: none;
+        margin-right: 0;
+        margin-left: 0;
+        width: 100%;
+    }
+}

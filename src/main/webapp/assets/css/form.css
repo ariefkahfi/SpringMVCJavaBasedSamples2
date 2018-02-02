@@ -1,0 +1,30 @@
+.form-wrapper{
+
+}
+.form-row{
+    margin-top : 5px;
+    margin-bottom : 5px;
+}
+.form-label{
+    display: block;
+    width: 100%;
+}
+.form-button{
+    padding : 8px;
+    background-color: #15CCA9;
+    display: block;
+    width: 100%;
+    border-radius : 3px;
+    color: white;
+    border : none;
+}
+.form-input{
+    display: block;
+    width: 100%;
+    padding : 5px;
+    border : 1px solid #DFDFDF;
+    border-radius: 3px;
+}
+.form-input-left{
+
+}
