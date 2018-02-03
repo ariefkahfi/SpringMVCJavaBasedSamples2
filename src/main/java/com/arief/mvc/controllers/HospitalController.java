@@ -26,7 +26,6 @@ public class HospitalController {
     @Autowired
     private HospitalService hospitalService;
 
-
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder) {
         webDataBinder.setValidator(new HospitalValidator());
@@ -35,6 +34,7 @@ public class HospitalController {
     @RequestMapping(value = "/form-hospital",method = RequestMethod.GET)
     public String hospitalFormGET(Model m){
         m.addAttribute("hospital",new Hospital());
+        m.addAttribute("hospitalList",hospitalService.getAll());
         return "hospital/form-hospital";
     }
 

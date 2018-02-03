@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="center-container">
-            <div class="container-bordered">
+            <div class="container-bordered container-margin-bottom">
                 <div class="form-wrapper">
                     <form  method="post" action="${pageContext.request.contextPath}/doctor/form-doctor">
 
@@ -67,6 +67,48 @@
                     </form>
                 </div>
             </div>
+
+            <div class="container-bordered container-margin-bottom">
+                <form action="${pageContext.servletContext.contextPath}/doctor/add" method="POST">
+                    <div class="form-row clearfix">
+                        <label for="_doctor_id" class="form-label-left">Doctor ID</label>
+                        <select name="_doctor_id" id="_doctor_id" class="form-input-left">
+                            <c:forEach var="doctor" items="${doctorList}">
+                                <option value="${doctor.doctorId}">${doctor.doctorName}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="form-row clearfix">
+                        <label for="_hospital_id" class="form-label-left">Hospital ID</label>
+                        <select name="_hospital_id" id="_hospital_id" class="form-input-left">
+                            <c:forEach items="${hospitalList}" var="hospital">
+                                <option value="${hospital.hospitalId}">${hospital.hospitalName}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input type="submit" class="form-button" value="Add doctor to new hospital"/>
+                    </div>
+                </form>
+            </div>
+
+            <div class="container-bordered">
+                <table class="table" border="2">
+                    <tr>
+                        <td>Doctor ID</td>
+                        <td>Doctor Name</td>
+                        <td>Delete</td>
+                    </tr>
+                    <c:forEach items="${doctorList}" var="doctor">
+                        <tr>
+                            <td>${doctor.doctorId}</td>
+                            <td>${doctor.doctorName}</td>
+                            <td><a href="${pageContext.servletContext.contextPath}/doctor/delete/${doctor.doctorId}">Delete</a></td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
+
         </div>
     </div>
 

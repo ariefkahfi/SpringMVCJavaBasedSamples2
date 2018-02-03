@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -34,7 +35,7 @@
             </div>
         </div>
         <div class="center-container">
-            <div class="container-bordered">
+            <div class="container-bordered container-margin-bottom">
                 <div class="form-wrapper">
                     <form:form modelAttribute="hospital" method="post" action="${pageContext.request.contextPath}/hospital/form-hospital">
                         <div class="form-row clearfix">
@@ -64,6 +65,24 @@
                     </form:form>
                 </div>
             </div>
+
+            <div class="container-bordered">
+                <table class="table" border="2">
+                    <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Address</td>
+                    </tr>
+                    <c:forEach items="${hospitalList}" var="h">
+                        <tr>
+                            <td>${h.hospitalId}</td>
+                            <td>${h.hospitalName}</td>
+                            <td>${h.hospitalAddress}</td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
+
         </div>
     </div>
 

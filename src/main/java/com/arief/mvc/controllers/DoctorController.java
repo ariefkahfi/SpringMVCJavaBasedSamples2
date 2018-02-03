@@ -39,6 +39,7 @@ public class DoctorController {
     @RequestMapping(value = "/form-doctor",method = RequestMethod.GET)
     public String formDoctorGET(Model m){
         m.addAttribute("doctor",new Doctor());
+        m.addAttribute("doctorList",doctorService.getAll());
         m.addAttribute("hospitalList",hospitalService.getAll());
         return "doctor/form-doctor";
     }
@@ -59,6 +60,27 @@ public class DoctorController {
 
         mm.put("result","save data success");
         mm.put("obj",d);
+        return "result/success";
+    }
+
+
+    @RequestMapping("/delete/{doctor_id}")
+    public String deleteDoctor(@PathVariable("doctor_id")String doctorId){
+        Doctor getOne = doctorService.getOne(doctorId);
+        doctorService.delete(getOne);
+        return "redirect:/doctor/form-doctor";
+    }
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    public String addDoctorToNewHospital(@RequestParam Map<String,String> map , ModelMap mm){
+        Hospital getOne = hospitalService.getOne(map.get("_hospital_id"));
+        boolean isAdded = doctorService.addNewHospitalToDoctor(map.get("_doctor_id"), getOne);
+
+        if(isAdded){
+            mm.addAttribute("result","update data success");
+        }else{
+            mm.addAttribute("result","update data fail , data exists");
+        }
+
         return "result/success";
     }
 }

@@ -36,7 +36,8 @@
             </div>
         </div>
         <div class="center-container">
-            <div class="container-bordered">
+
+            <div class="container-bordered container-margin-bottom">
                 <div class="form-wrapper">
                     <form method="post" action="${pageContext.request.contextPath}/hospital-director/form-hospital-director">
                         <div class="form-row clearfix">
@@ -57,6 +58,24 @@
                     </form>
                 </div>
             </div>
+
+            <div class="container-bordered">
+                <table class="table" border="2">
+                    <tr>
+                        <td>Director Name</td>
+                        <td>Hospital Name</td>
+                        <td>Hospital Address</td>
+                    </tr>
+                    <c:forEach items="${hospitalDirectorList}" var="hd">
+                        <tr>
+                            <td>${hd.directorName}</td>
+                            <td>${hd.hospital.hospitalName}</td>
+                            <td>${hd.hospital.hospitalAddress}</td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
+
         </div>
     </div>
 

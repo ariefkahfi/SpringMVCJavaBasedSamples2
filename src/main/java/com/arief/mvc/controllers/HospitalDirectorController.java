@@ -31,6 +31,7 @@ public class HospitalDirectorController {
     @RequestMapping(value = "/form-hospital-director",method = RequestMethod.GET)
     public String formViewGET(Model m){
         m.addAttribute("hospitalList",hospitalService.getAll());
+        m.addAttribute("hospitalDirectorList",hdService.getAll());
         return "hospital-director/form-hospital-director";
     }
 

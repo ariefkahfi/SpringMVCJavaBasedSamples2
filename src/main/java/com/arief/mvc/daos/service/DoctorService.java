@@ -30,30 +30,7 @@ public class DoctorService implements GenericeService<Doctor,String> {
         });
     }
 
-//    public void save(final Doctor doctor , final Hospital hospital){
-//        template.execute(new TransactionCallbackWithoutResult() {
-//            @Override
-//            protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
-//                List<Hospital> hospitalList = doctor.getHospitalList();
-//
-//                boolean isExists = false;
-//
-//                for(Hospital h : hospitalList){
-//                    if(h.getHospitalId().equals(hospital.getHospitalId())){
-//                        isExists = true;
-//                        break;
-//                    }
-//                }
-//
-//                if(isExists){
-//                    System.out.println("data exists");
-//                }else{
-//                    doctor.getHospitalList().add(hospital);
-//                    System.out.println("successfully save");
-//                }
-//            }
-//        });
-//    }
+
 
     public List<Doctor> getAll() {
         return template.execute(new TransactionCallback<List<Doctor>>() {
@@ -71,7 +48,41 @@ public class DoctorService implements GenericeService<Doctor,String> {
         });
     }
 
-    public void delete(Doctor doctor) {
+    public boolean addNewHospitalToDoctor(final String doctorId , final Hospital newHospital){
+        return template.execute(new TransactionCallback<Boolean>() {
+            public Boolean doInTransaction(TransactionStatus transactionStatus) {
+                Doctor getOne = dao.getOne(doctorId);
 
+                boolean isExists = false;
+
+                for(Hospital h : getOne.getHospitalList()){
+                    if(h.getHospitalId().equals(newHospital.getHospitalId())){
+                        isExists = true;
+                        break;
+                    }
+                }
+
+                if(isExists){
+                    System.out.println("data exists....");
+
+                    return  false;
+                }else{
+                    getOne.getHospitalList().add(newHospital);
+                    System.out.println("data added successfully");
+                    return  true;
+                }
+            }
+        });
+    }
+
+    public void delete(final Doctor doctor) {
+        template.execute(new TransactionCallbackWithoutResult() {
+            @Override
+            protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
+                Doctor getOne = dao.getOne(doctor.getDoctorId());
+                getOne.getHospitalList().clear();
+                dao.delete(getOne);
+            }
+        });
     }
 }

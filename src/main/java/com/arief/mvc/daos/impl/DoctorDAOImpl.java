@@ -28,6 +28,12 @@ public class DoctorDAOImpl implements DoctorDAO{
                 .createQuery("from Doctor").list();
     }
 
+    public void delete(Doctor d) {
+        sessionFactory
+                .getCurrentSession()
+                .delete(d);
+    }
+
     public Doctor getOne(String doctorId) {
         return sessionFactory
                 .getCurrentSession()

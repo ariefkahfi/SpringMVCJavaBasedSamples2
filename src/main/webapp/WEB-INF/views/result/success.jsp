@@ -10,7 +10,9 @@
     <div>
         <p>${result}</p>
         <div>
-            ${obj}
+            <c:if test="${obj != null}">
+                ${obj}
+            </c:if>
         </div>
         <div>
             <a href="${pageContext.servletContext.contextPath}">Home Page</a>
