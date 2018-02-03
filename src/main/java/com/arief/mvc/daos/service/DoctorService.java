@@ -2,6 +2,7 @@ package com.arief.mvc.daos.service;
 
 import com.arief.mvc.daos.DoctorDAO;
 import com.arief.mvc.entity.Doctor;
+import com.arief.mvc.entity.Hospital;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionStatus;
@@ -28,6 +29,31 @@ public class DoctorService implements GenericeService<Doctor,String> {
             }
         });
     }
+
+//    public void save(final Doctor doctor , final Hospital hospital){
+//        template.execute(new TransactionCallbackWithoutResult() {
+//            @Override
+//            protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
+//                List<Hospital> hospitalList = doctor.getHospitalList();
+//
+//                boolean isExists = false;
+//
+//                for(Hospital h : hospitalList){
+//                    if(h.getHospitalId().equals(hospital.getHospitalId())){
+//                        isExists = true;
+//                        break;
+//                    }
+//                }
+//
+//                if(isExists){
+//                    System.out.println("data exists");
+//                }else{
+//                    doctor.getHospitalList().add(hospital);
+//                    System.out.println("successfully save");
+//                }
+//            }
+//        });
+//    }
 
     public List<Doctor> getAll() {
         return template.execute(new TransactionCallback<List<Doctor>>() {

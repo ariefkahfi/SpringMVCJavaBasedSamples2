@@ -1,5 +1,6 @@
 package com.arief.mvc.controllers;
 
+import com.arief.mvc.daos.service.DoctorService;
 import com.arief.mvc.daos.service.HospitalService;
 import com.arief.mvc.entity.Doctor;
 import com.arief.mvc.entity.Hospital;
@@ -13,12 +14,11 @@ import org.springframework.validation.DataBinder;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import javax.print.Doc;
 import java.util.ArrayList;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/doctor")
@@ -27,7 +27,8 @@ public class DoctorController {
 
     @Autowired
     private HospitalService hospitalService;
-
+    @Autowired
+    private DoctorService doctorService;
 
     @InitBinder
     public void initBinder(WebDataBinder dataBinder){
@@ -43,14 +44,21 @@ public class DoctorController {
     }
 
     @RequestMapping(value = "/form-doctor",method = RequestMethod.POST)
-    public String formDoctorPOST(@Validated @ModelAttribute("doctor") Doctor d , BindingResult bindingResult, ModelMap mm){
+    public String formDoctorPOST(@RequestParam  Map<String,String> requestParam, ModelMap mm){
+        Doctor d =  new Doctor();
+        d.setDoctorId(requestParam.get("doctor_id"));
+        d.setDoctorName(requestParam.get("doctor_name"));
         d.setHospitalList(new ArrayList<Hospital>());
-        if(bindingResult.hasErrors()){
-            return "doctor/form-doctor";
-        }else{
-            mm.put("result","save data success");
-            mm.put("obj",d);
-            return "result/success";
-        }
+
+        Hospital getOne = hospitalService.getOne(requestParam.get("doctor_hospital"));
+
+        d.getHospitalList().add(getOne);
+
+        doctorService.save(d);
+
+
+        mm.put("result","save data success");
+        mm.put("obj",d);
+        return "result/success";
     }
 }

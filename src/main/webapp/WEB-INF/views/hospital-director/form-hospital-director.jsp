@@ -40,7 +40,7 @@
                 <div class="form-wrapper">
                     <form method="post" action="${pageContext.request.contextPath}/hospital-director/form-hospital-director">
                         <div class="form-row clearfix">
-                            <label for="director_name" class="form-label-left">Doctor Name</label>
+                            <label for="director_name" class="form-label-left">Director Name</label>
                             <input type="text" name="director_name" class="form-input-left" id="director_name"/>
                         </div>
                         <div class="form-row clearfix">

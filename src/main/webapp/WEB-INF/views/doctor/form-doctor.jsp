@@ -39,21 +39,18 @@
         <div class="center-container">
             <div class="container-bordered">
                 <div class="form-wrapper">
-                    <form:form modelAttribute="doctor" method="post" action="${pageContext.request.contextPath}/doctor/form-doctor">
+                    <form  method="post" action="${pageContext.request.contextPath}/doctor/form-doctor">
+
                         <div class="form-row clearfix">
                             <label for="doctor_id" class="form-label-left">Doctor ID</label>
-                            <form:input path="doctorId" id="doctor_id" cssClass="form-input-left"/>
-                            <span>
-                                <form:errors path="doctorId"/>
-                            </span>
+                            <input type="text" name="doctor_id" id="doctor_id" class="form-input-left"/>
                         </div>
+
                         <div class="form-row clearfix">
                             <label for="doctor_name" class="form-label-left">Doctor Name</label>
-                            <form:input path="doctorName" id="doctor_name" cssClass="form-input-left"/>
-                            <span>
-                                <form:errors path="doctorName"/>
-                            </span>
+                            <input type="text" name="doctor_name" id="doctor_name" class="form-input-left"/>
                         </div>
+
                         <div class="form-row clearfix">
                             <label for="doctor_hospital" class="form-label-left">Choose hospital</label>
                             <select name="doctor_hospital" id="doctor_hospital" class="form-input-left">
@@ -62,10 +59,12 @@
                                 </c:forEach>
                             </select>
                         </div>
+
                         <div class="form-row">
                             <input type="submit" value="Submit Data" onclick="return submitDoctor()" class="form-button"/>
                         </div>
-                    </form:form>
+
+                    </form>
                 </div>
             </div>
         </div>

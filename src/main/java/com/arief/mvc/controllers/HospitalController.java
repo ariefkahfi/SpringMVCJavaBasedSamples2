@@ -1,8 +1,10 @@
 package com.arief.mvc.controllers;
 
+import com.arief.mvc.daos.service.HospitalService;
 import com.arief.mvc.entity.Doctor;
 import com.arief.mvc.entity.Hospital;
 import com.arief.mvc.validator.HospitalValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -21,6 +23,10 @@ import java.util.ArrayList;
 public class HospitalController {
 
 
+    @Autowired
+    private HospitalService hospitalService;
+
+
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder) {
         webDataBinder.setValidator(new HospitalValidator());
@@ -37,6 +43,8 @@ public class HospitalController {
         h.setDoctorList(new ArrayList<Doctor>());
         if(bindingResult.hasErrors())
             return  "hospital/form-hospital";
+
+        hospitalService.save(h);
 
         mm.addAttribute("result","save data hospital success");
         mm.addAttribute("obj",h);
