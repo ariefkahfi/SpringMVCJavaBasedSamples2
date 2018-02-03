@@ -17,19 +17,19 @@
         <c:import url="/resources/html/left-sidebar.html"/>
 
         <div id="inner-center-container" class="clearfix">
-            <div class="card">
+            <div class="card" id="card-hospital" onclick="pageHospital()">
                 <img src="${pageContext.servletContext.contextPath}/resources/images/hospital.png" class="card-image"/>
                 <div class="card-desc">
                     <div>Page Hospital</div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" id="card-doctor" onclick="pageDoctor()">
                 <img src="${pageContext.servletContext.contextPath}/resources/images/doctor.png" class="card-image"/>
                 <div class="card-desc">
                     <div>Page Doctor</div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" id="card-hospital-director" onclick="pageHospitalDirector()">
                 <img src="${pageContext.servletContext.contextPath}/resources/images/director.png" class="card-image"/>
                 <div class="card-desc">
                     <div>Page Hospital's Director</div>
@@ -47,4 +47,6 @@
 
 
 </body>
+    <script src="${pageContext.servletContext.contextPath}/resources/js/index.js"></script>
+    <%--<script src="${pageContext.servletContext.contextPath}/resources/js/global.js"></script>--%>
 </html>

@@ -36,6 +36,10 @@
     /*body{*/
         /*background-color: yellow;*/
     /*}*/
+    #inner-left-container{
+        float: none;
+        width: 100%;
+    }
     #left-sidebar{
         float: none;
         width: 100%;

@@ -2,6 +2,7 @@ package com.arief.mvc.configs;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
@@ -19,6 +20,8 @@ public class MyWebAppContext implements WebMvcConfigurer{
                 .jsp("/WEB-INF/views/",".jsp")
                 .viewClass(JstlView.class);
     }
+
+
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry

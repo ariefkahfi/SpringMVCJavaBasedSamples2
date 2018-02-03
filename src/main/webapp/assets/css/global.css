@@ -62,6 +62,8 @@ body{
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     color: white;
+    height : 50px;
+
 }
 /*card styles*/
 
@@ -75,6 +77,14 @@ body{
 /*image styles*/
 
 /*container styles*/
+#inner-left-container{
+    float : left;
+    width: 25%;
+}
+.center-container{
+    padding-left : 2px;
+    overflow: hidden;
+}
 #inner-center-container{
     float: left;
     width : 520px;
@@ -88,13 +98,19 @@ body{
     width: 960px;
     margin : auto;
 }
+
 #main-container{
     padding : 5px;
 }
 
+.container-margin-bottom{
+    margin-bottom : 2px;
+}
 .container{
     padding : 2px;
+    overflow: hidden;
 }
+
 .container-bordered{
     border : 1px solid #DFDFDF;
     border-radius: 3px;

@@ -1,6 +1,8 @@
 package com.arief.mvc.entity;
 
 import javax.persistence.*;
+import javax.print.Doc;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -52,5 +54,15 @@ public class Doctor {
                 "doctorId='" + doctorId + '\'' +
                 ", doctorName='" + doctorName + '\'' +
                 '}';
+    }
+
+    public static Doctor createDoctor(
+            String doctorId ,  String doctorName
+    ){
+        Doctor d = new Doctor();
+        d.setDoctorId(doctorId);
+        d.setDoctorName(doctorName);
+        d.setHospitalList(new ArrayList<Hospital>());
+        return d;
     }
 }

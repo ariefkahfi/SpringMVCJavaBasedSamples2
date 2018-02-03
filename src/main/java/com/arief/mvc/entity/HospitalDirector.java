@@ -50,4 +50,6 @@ public class HospitalDirector {
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
+
+
 }
